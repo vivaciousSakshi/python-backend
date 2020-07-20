@@ -87,6 +87,7 @@ def get_data_by_name(name):
     return json.dumps(student_list)
 
 
+
 @app.route('/deletedatabyname/<name>', methods=["DELETE"])
 def delete_data_by_name(name):
     cur = mysql.connection.cursor()
