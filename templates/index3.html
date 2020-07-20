@@ -1,0 +1,48 @@
+<html>
+<head>
+  <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+
+</head>
+
+<body>
+
+
+<script>
+var request = new XMLHttpRequest()
+
+request.open('GET', 'http://127.0.0.1:5000/getdata', true)
+request.onload = function () {
+  // Begin accessing JSON data here
+  var data;
+  data = JSON.parse(this.response)
+    console.log(data);
+    var i;
+    document.write('<table class="tg"> <thead> <ul> <tr> <th class="tg-0lax">Name</th> <th class="tg-0lax">id</th> <th class="tg-0lax">email</th> <th class="tg-0lax">phone</th> <th class="tg-0lax">class</th> </tr> </ul>')
+for (i = 0; i < data.length; i++) {
+
+
+document.write("<tr> <td> " + data[i]["student_name"] + "</td>")
+document.write("<td> " + data[i]["student_id"] + "</td>")
+document.write("<td> " + data[i]["student_email"] + "</td>")
+document.write("<td> " + data[i]["student_phone"] + "</td>")
+document.write("<td> " + data[i]["student_class"] + "</td> </tr>")
+
+
+
+    }
+}
+request.send()
+document.write("</thead> </table>")
+</script>
+
+
+
+  </body>
+</html>
